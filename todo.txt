@@ -1,0 +1,14 @@
+create directories 
+create db
+populate folders files with the boilerplate
+
+
+
+
+
+orm file 
+config file
+controller file
+view (public directroy setup)
+setup server db and express boilerplate 
+create readme 
