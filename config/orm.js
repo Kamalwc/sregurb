@@ -1,6 +1,6 @@
 const connection = require('./connection.js');
 
-function selectAll() {
+const selectAll = () => {
         connection.query("SELECT * FROM burgers", (err,results)=>{
             // if (err) return res.status(500).end();
 
@@ -8,7 +8,7 @@ function selectAll() {
         })
 };
 
-function insertOne(param) {
+const insertOne = (param) => {
     connection.query(`INSERT INTO burgers (burger_name) VALUES(?)`, param, (err,results)=>{
         // if (err) return res.status(500).end();
 
@@ -17,15 +17,19 @@ function insertOne(param) {
     })
 };
 
-function updateOne(param) {
-    connection.query(`UPDATE burgers SET eaten=true WHERE burger_id=?`,param, (err,results)=>{
-        // if (err) return res.status(500).end();
+const updateOne = (param) =>{
+    connection.query(`UPDATE burgers SET eaten = true WHERE id = ?`,param, (err,results)=>{
 
+        selectAll();
         console.log(results);
     })
 };
 
-selectAll();
-// insertOne('bueno burgah')
-updateOne(3)
-module.exports = { selectAll , insertOne , updateOne };
+// // selectAll();
+// // insertOne('Truth burgear')
+// updateOne(8)
+module.exports = { 
+    selectAll: selectAll,
+    insertOne: insertOne , 
+    updateOne: updateOne
+ };
