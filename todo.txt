@@ -1,14 +1,12 @@
-create directories 
-create db
-populate folders files with the boilerplate
 
-
-
-
-
-orm file 
-config file
-controller file
-view (public directroy setup)
-setup server db and express boilerplate 
+https://github.com/RutgersCodingBootcamp/RU-JER-FSF-PT-03-2020-U-C/blob/master/13-MVC/02-Homework/Instructions/homework_instructions.md
+CREATE MODEL
+MAKE SURE YOUR REQUESTING AND RESPONDING IN ALL ENDPOINTS
+test api in postman 
+index.js 
+index.html
 create readme 
+USE HOVER CSS TO SPICE IT UP
+ERRO VALIDATION FOR BLANK BURGER NAMES 
+write  RAW QUERY IN SEQUALIZE 
+warriors semi-colon meme

@@ -1,35 +1,41 @@
 const connection = require('./connection.js');
 
-const selectAll = () => {
-        connection.query("SELECT * FROM burgers", (err,results)=>{
-            // if (err) return res.status(500).end();
-
-            console.log(results);
+// if you want to log the results of the query in the model all methods have a call back function
+const findBurgers = (table,eaten, log) => {
+        connection.query("SELECT * FROM ? WHERE eaten = ? ", [table , eaten] ,(err,results)=>{
+        if(err){throw err;}
+        
+        log(results);
         })
 };
 
-const insertOne = (param) => {
-    connection.query(`INSERT INTO burgers (burger_name) VALUES(?)`, param, (err,results)=>{
-        // if (err) return res.status(500).end();
+const postOne = (table ,column, param, log) => {
+    connection.query(`INSERT INTO ? (?) VALUES(?)`, [table, column, param], (err,results)=>{
+        if(err){throw err;}
 
-        // res.json({ name: results.burger_name });
-        console.log(results);
+        log(results);
     })
 };
 
-const updateOne = (param) =>{
-    connection.query(`UPDATE burgers SET eaten = true WHERE id = ?`,param, (err,results)=>{
+const updateOne = (table ,column, param, log) =>{
+    connection.query(`UPDATE ? SET ? = true WHERE id = ?`,[table, column, param], (err,results)=>{
+        if(err){throw err;}
 
-        selectAll();
-        console.log(results);
+        log(results);
     })
 };
 
-// // selectAll();
-// // insertOne('Truth burgear')
-// updateOne(8)
+const removeOne = (table , param, log) =>{
+    connection.query(`DELETE FROM ? WHERE id = ?`,[table, param], (err,results)=>{
+        if(err){throw err;}
+
+        log(results);
+    })
+};
+
 module.exports = { 
-    selectAll: selectAll,
-    insertOne: insertOne , 
-    updateOne: updateOne
+    findBurgers: findBurgers,
+    postOne: postOne , 
+    updateOne: updateOne,
+    removeOne: removeOne
  };

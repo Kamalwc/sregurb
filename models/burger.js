@@ -1,8 +1,26 @@
-const orm = require('../config/orm.js')
+const orm = require('../config/orm.js');
 
-// orm.selectAll();
-// orm.updateOne(param);
-// orm.insertOne(param);
-
-//WHY DO WE NEED TO EXPORT AT THE END OF THE FILE 
-// module.exports;
+//a vanilla model groups all the queries of particular table together 
+const burgerModel = {
+    all: function(cb){
+        orm.findBurgers('burgers', eaten, ()=>{
+            cb(res);
+        })
+    }, 
+    create: function(cb){
+        orm.postOne('burgers', column, param, ()=>{
+            cb(res);
+        })
+    } ,
+    update: function(cb){
+        orm.updateOne('burgers', column, param, ()=>{
+            cb(res);
+        })
+    },
+    delete: function(cb){
+        orm.removeOne('burgers', param, ()=>{
+            cb(res);
+        })
+    }
+}
+module.exports = burgerModel;
