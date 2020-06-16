@@ -1,0 +1,20 @@
+body{
+    background-color: bisque;
+}
+
+.eat{
+    background-color: violet;
+}
+
+.digest{
+    background-color: teal;
+}
+
+li{
+    list-style-type: none;
+}
+
+.burgerName{
+    /* float: left; */
+}
+
