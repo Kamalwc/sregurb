@@ -1,40 +1,39 @@
 const connection = require('./connection.js');
 
 // if you want to log the results of the query in the model all methods have a call back function
-const findBurgers = (table,eaten, log) => {
-        connection.query("SELECT * FROM ? WHERE eaten = ? ", [table , eaten] ,(err,results)=>{
-        if(err){throw err;}
-        
-        log(results);
-        })
-};
-
-const postOne = (table ,column, param, log) => {
-    connection.query(`INSERT INTO ? (?) VALUES(?)`, [table, column, param], (err,results)=>{
-        if(err){throw err;}
-
-        log(results);
+const all = (table, eaten, cb) => {
+    connection.query(`SELECT * FROM ${table} WHERE eaten = ${eaten}`, (err, results) => {
+        if (err) { throw err; }
+        cb(results)
     })
 };
 
-const updateOne = (table ,column, param, log) =>{
-    connection.query(`UPDATE ? SET ? = true WHERE id = ?`,[table, column, param], (err,results)=>{
-        if(err){throw err;}
+const postOne = (table, param, cb) => {
+    connection.query(`INSERT INTO ${table} (burger_name) VALUES(${param})`, (err, results) => {
+        if (err) { throw err; }
 
-        log(results);
+        cb(results);
     })
 };
 
-const removeOne = (table , param, log) =>{
-    connection.query(`DELETE FROM ? WHERE id = ?`,[table, param], (err,results)=>{
-        if(err){throw err;}
+const updateOne = (table, param, cb) => {
+    connection.query(`UPDATE ${table} SET eaten = true WHERE id = ${param}`, (err, results) => {
+        if (err) { throw err; }
 
-        log(results);
+        cb(results);
     })
 };
 
-module.exports = { 
-    findBurgers: findBurgers,
+const removeOne = (table, param, cb) => {
+    connection.query(`DELETE FROM ${table} WHERE id = ${param}`, (err, results) => {
+        if (err) { throw err; }
+
+        cb(results);
+    })
+};
+
+module.exports = {
+    all: all,
     postOne: postOne , 
     updateOne: updateOne,
     removeOne: removeOne
