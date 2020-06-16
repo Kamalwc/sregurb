@@ -1,12 +1,10 @@
 
 https://github.com/RutgersCodingBootcamp/RU-JER-FSF-PT-03-2020-U-C/blob/master/13-MVC/02-Homework/Instructions/homework_instructions.md
-CREATE MODEL
-MAKE SURE YOUR REQUESTING AND RESPONDING IN ALL ENDPOINTS
-test api in postman 
-index.js 
-index.html
+debug PUT, POST , DELETE routes
+test ^ in postman
+finish front end 
+ERROR VALIDATION FOR BLANK BURGER NAMES 
 create readme 
-USE HOVER CSS TO SPICE IT UP
-ERRO VALIDATION FOR BLANK BURGER NAMES 
-write  RAW QUERY IN SEQUALIZE 
+deploy with jawsdb
 warriors semi-colon meme
+x2 full stack w/ react ideas ( one for project coming up , personal, and final project)
