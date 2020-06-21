@@ -12,13 +12,13 @@ var burger = {
     });
   },
   // The variables cols and vals are arrays.
-  create: function( param, cb) {
-    orm.create("burgers", param, function(res) {
+  create: function( cols, param, cb) {
+    orm.create("burgers", cols, param, function(res) {
       cb(res);
     });
   },
-  update: function(objColVals, condition, cb) {
-    orm.update("burgers", objColVals, condition, function(res) {
+  update: function(param, cb) {
+    orm.update("burgers",  param, function(res) {
       cb(res);
     });
   },

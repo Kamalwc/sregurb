@@ -1,0 +1,9 @@
+
+WIWR
+
+# dont use this inside of arrow functions 
+# use the chrome debugger in your front end js file 
+# check your sql table names 
+# make sure you stringify your object you pass to the PUT to send it as JSON
+# make a gitignore always add node modules
+# if you accidently add a file / package delete it and recommit with deleted files
