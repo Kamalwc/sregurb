@@ -4,9 +4,11 @@ $.ajax("/api/freshburgers", { type: "get" }).then(
         data.burgers.forEach(i => {
             $('#not_eaten').append(
                 `<li>
-                <p>${i.burger_name}</p>
-                <button class='eat' data-id=${i.id}>Eat me</button>
-            </li>`
+                <div class="butext">
+                     <p class='bu'>${i.burger_name}</p>
+                     <button class='eat bu' data-id=${i.id}>Eat me</button>
+                </div>
+                </li>`
             )
         })
     }
@@ -17,9 +19,9 @@ $.ajax("/api/eatenburgers", { type: "get" }).then(
         data.burgers.forEach(i => {
             $('#eaten').append(
                 `<li>
-                <div class='burgerName'>
-                    <p>${i.burger_name}</p>
-                    <button class='digest' data-id=${i.id}>Digest</button>
+                <div class="butext">
+                    <p class='bu'>${i.burger_name}</p>
+                    <button class='digest bu' data-id=${i.id}>Digest</button>
                 </div>
             </li>`
             )
@@ -28,46 +30,39 @@ $.ajax("/api/eatenburgers", { type: "get" }).then(
 );
 
 //for some reason the id number keeps returning undefined 
-$(document).on('click', '.digest',function (event) {
+$(document).on('click', '.digest', function (event) {
 
     let id = $(this).data("id");
     console.log('The id is this : ' + id);
 
-    
+
     $.ajax('/api/burgers/' + id, { type: 'DELETE' }).then(
-        function() {
-                location.reload();
-                console.log("Deleted burger: " + data);
+        function () {
+            location.reload();
+            console.log("Deleted burger: " + data);
         }
     )
 })
 
-$(document).on('click', '.eat',function (event) {
+$(document).on('click', '.eat', function (event) {
 
     let id = $(this).data("id");
     console.log('The id is this : ' + id);
 
-    
+
     $.ajax('/api/burgers/' + id, { type: 'PUT' }).then(
-        function() {
-                location.reload();
-                console.log("Updated burger with id: " + data);
+        function () {
+            location.reload();
+            console.log("Updated burger with id: " + data);
         }
     )
-   
+
 })
 
 
 //post 
 $('#addBurger').on('submit', (event) => {
     event.preventDefault();
-
-
-    // $.ajax('/api/bugers', { type: 'POST' }).then(
-    //     function (data) {
-    //         console.log(data + " was successfully posted");
-    //     }
-    // )
 
     var newburger = {
         burger_name: $("#addBurger [name=burger]").val().trim()
@@ -88,4 +83,3 @@ $('#addBurger').on('submit', (event) => {
     console.log(newburger + 'added succesfully');
 
 });
-   

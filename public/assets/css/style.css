@@ -3,18 +3,46 @@ body{
 }
 
 .eat{
-    background-color: violet;
+    background-color: rgb(73, 128, 52);
+    border-radius: 12px;
+    color: white;
 }
 
 .digest{
-    background-color: teal;
+    background-color: rgb(202, 5, 5);
+    border-radius: 12px;
+    color: white;
 }
 
 li{
     list-style-type: none;
+    display: inline;
 }
 
-.burgerName{
-    /* float: left; */
+.butext{
+    margin-bottom: 10px;
+}
+/* .burgerName{
+    float: left;
+    clear:right;
+} */
+
+.top{
+    text-align: center;
 }
 
+input{
+    width: 75%;
+}
+
+#add{
+    width:16%;
+}
+
+#third{
+    margin-top: 20px;
+}
+
+.bu{
+    display: inline;
+}
